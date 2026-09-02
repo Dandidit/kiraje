@@ -1,24 +1,22 @@
 import Link from "next/link";
 
-const calculators = [
-  {
-    title: "Gaji Bersih",
-    description: "Anggar gaji bersih selepas potongan utama.",
-    href: "/kalkulator/gaji-bersih",
-    tag: "Kewangan"
-  },
-  {
-    title: "Overtime",
-    description: "Kira bayaran OT berdasarkan gaji dan jam bekerja.",
-    href: "/kalkulator/overtime",
-    tag: "Kerja"
-  },
-  {
-    title: "Pinjaman",
-    description: "Anggar bayaran bulanan untuk pinjaman.",
-    href: "/kalkulator/pinjaman",
-    tag: "Kewangan"
-  }
+const tools = [
+  ["Gaji Bersih Malaysia", "Anggar gaji bersih selepas potongan utama.", "/kalkulator/gaji-bersih", "Kewangan"],
+  ["Kalkulator Overtime", "Kira anggaran bayaran OT berdasarkan gaji dan jam bekerja.", "/kalkulator/overtime", "Kerja"],
+  ["Kalkulator Pinjaman", "Anggar bayaran bulanan dan jumlah faedah pinjaman.", "/kalkulator/pinjaman", "Kewangan"],
+  ["Loan Kereta", "Anggar ansuran bulanan untuk pinjaman kereta.", "/kalkulator/loan-kereta", "Kenderaan"],
+  ["Loan Rumah", "Anggar ansuran bulanan untuk pinjaman rumah.", "/kalkulator/loan-rumah", "Rumah"],
+  ["EPF / KWSP", "Anggar caruman EPF berdasarkan gaji.", "/kalkulator/epf", "Kewangan"],
+  ["Zakat Pendapatan", "Anggar zakat pendapatan secara mudah.", "/kalkulator/zakat", "Kewangan"],
+  ["Kalkulator Peratus", "Kira peratus daripada sesuatu nilai.", "/kalkulator/percentage", "Harian"],
+  ["Kalkulator Diskaun", "Kira harga selepas diskaun dan jumlah penjimatan.", "/kalkulator/discount", "Shopping"],
+  ["Kalkulator Umur", "Kira umur berdasarkan tarikh lahir.", "/kalkulator/age", "Harian"],
+  ["Beza Tarikh", "Kira jumlah hari antara dua tarikh.", "/kalkulator/working-days", "Harian"],
+  ["Kalkulator BMI", "Kira Body Mass Index berdasarkan tinggi dan berat.", "/kalkulator/bmi", "Kesihatan"],
+  ["Unit Converter", "Tukar unit dengan cepat.", "/kalkulator/unit", "Tools"],
+  ["QR Code Generator", "Jana QR code dengan cepat.", "/tools/qr-code", "Tools"],
+  ["Word Counter", "Kira perkataan dan aksara dalam teks.", "/tools/word-counter", "Tools"],
+  ["JSON Formatter", "Format dan semak JSON dengan mudah.", "/tools/json-formatter", "Developer"]
 ];
 
 export default function Home() {
@@ -28,7 +26,8 @@ export default function Home() {
         <Link href="/" className="brand">Kira<span>Je</span></Link>
         <nav>
           <a href="#kalkulator">Kalkulator</a>
-          <a href="#tentang">Tentang</a>
+          <a href="/tentang">Tentang</a>
+          <a href="/hubungi">Hubungi</a>
         </nav>
       </header>
 
@@ -36,7 +35,7 @@ export default function Home() {
         <div className="hero-copy">
           <div className="eyebrow">🇲🇾 Tools online untuk Malaysia</div>
           <h1>Kira apa-apa,<br /><span>KiraJe.</span></h1>
-          <p>Calculator dan tools percuma yang simple, cepat dan senang digunakan.</p>
+          <p>Kalkulator dan tools percuma yang simple, cepat dan senang digunakan.</p>
           <a className="primary-button" href="#kalkulator">Mula kira →</a>
         </div>
         <div className="hero-card">
@@ -53,28 +52,42 @@ export default function Home() {
       <section id="kalkulator" className="section">
         <div className="section-heading">
           <div>
-            <div className="eyebrow">Kalkulator</div>
-            <h2>Yang paling berguna dulu.</h2>
+            <div className="eyebrow">Kalkulator & Tools</div>
+            <h2>Yang berguna, semua di sini.</h2>
           </div>
-          <p>Kami akan tambah lagi tools dari masa ke masa.</p>
+          <p>Tools percuma untuk pengiraan harian, kewangan dan kerja.</p>
         </div>
-
         <div className="cards">
-          {calculators.map((item) => (
-            <Link className="tool-card" href={item.href} key={item.href}>
+          {tools.map(([title, description, href, tag]) => (
+            <Link className="tool-card" href={href} key={href}>
               <div className="card-top">
-                <span className="tag">{item.tag}</span>
+                <span className="tag">{tag}</span>
                 <span className="arrow">↗</span>
               </div>
-              <h3>{item.title}</h3>
-              <p>{item.description}</p>
-              <span className="card-link">Kira sekarang →</span>
+              <h3>{title}</h3>
+              <p>{description}</p>
+              <span className="card-link">Buka tool →</span>
             </Link>
           ))}
         </div>
       </section>
 
-      <section id="tentang" className="about">
+      <section className="seo-intro">
+        <div className="eyebrow">Kalkulator Malaysia</div>
+        <h2>Calculator online yang mudah digunakan</h2>
+        <p>
+          KiraJe menyediakan kalkulator dan tools online percuma untuk membantu
+          pengiraan harian. Anda boleh kira gaji, overtime, pinjaman, diskaun,
+          umur, peratus dan banyak lagi tanpa perlu memasang aplikasi.
+        </p>
+        <p>
+          Untuk pengiraan yang melibatkan caruman, cukai atau peraturan rasmi,
+          gunakan keputusan KiraJe sebagai anggaran dan semak kadar semasa
+          dengan sumber rasmi yang berkaitan.
+        </p>
+      </section>
+
+      <section className="about">
         <div>
           <div className="eyebrow">Tentang KiraJe</div>
           <h2>Tak payah pening.<br />KiraJe.</h2>
@@ -84,7 +97,7 @@ export default function Home() {
 
       <footer>
         <div className="brand">Kira<span>Je</span></div>
-        <p>© {new Date().getFullYear()} KiraJe. Dibuat untuk memudahkan hidup.</p>
+        <p><a href="/privacy">Privacy</a> · <a href="/terma">Terma</a> · <a href="/hubungi">Hubungi</a></p>
       </footer>
     </main>
   );

@@ -1,0 +1,3 @@
+import Calculator from "../pinjaman/calculator";
+export const metadata={title:"Kalkulator Loan Kereta Malaysia",description:"Anggar bayaran bulanan pinjaman kereta di Malaysia."};
+export default function Page(){return <main className="calculator-page"><a href="/" className="back">← Kembali ke KiraJe</a><div className="calculator-header"><div className="eyebrow">Kewangan</div><h1>Kalkulator Loan Kereta Malaysia</h1><p>Anggar bayaran bulanan pinjaman kereta di Malaysia.</p></div><Calculator/><section className="seo-copy"><h2>Tentang Kalkulator Loan Kereta Malaysia</h2><p>Anggar bayaran bulanan pinjaman kereta di Malaysia. Gunakan keputusan sebagai anggaran dan semak kadar sebenar daripada bank atau pemberi pinjaman.</p></section></main>}
